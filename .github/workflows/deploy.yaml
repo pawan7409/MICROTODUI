@@ -28,9 +28,9 @@ jobs:
         run: npm run build
         env:
           REACT_APP_WELCOME_TEXT: ${{ vars.REACT_APP_WELCOME_TEXT }}
-
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v1.10.0
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          branch: features/pop
-          folder: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+
